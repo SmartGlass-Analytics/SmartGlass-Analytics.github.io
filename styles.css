@@ -36,17 +36,17 @@ footer {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     position: fixed;
     width: 100%;
     bottom: 0;
 }
 
 .team-member {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .team-member img {
-    max-width: 150px;
+    max-width: 200px;
     border-radius: 0; /*50%; for a rounded photo*/ 
 }
