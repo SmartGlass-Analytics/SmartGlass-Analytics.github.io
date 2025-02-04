@@ -47,5 +47,5 @@ footer {
 
 .team-member img {
     max-width: 150px;
-    border-radius: 50%;
+    border-radius: 0; /*50%; for a rounded photo*/ 
 }
