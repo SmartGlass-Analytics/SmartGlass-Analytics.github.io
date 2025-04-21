@@ -1,0 +1,56 @@
+<!-- install.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Install - SmartGlass</title>
+  <link rel="stylesheet" href="style.css"> <!-- if you have one -->
+</head>
+<body>
+  <h1>How to Install SmartGlass</h1>
+
+  <p>SmartGlass is a mobile application that allows real-time basketball stats to be displayed on Brilliant Labs Frame smart glasses. It integrates Synergy API data with a Bluetooth-connected Android tablet.</p>
+
+  <h2>Requirements</h2>
+  <ul>
+    <li>Android Studio (Electric Eel or newer)</li>
+    <li>Python 3.10+</li>
+    <li>Elo M51 Android Tablet</li>
+    <li>Brilliant Labs Frame glasses</li>
+    <li>Bluetooth 5.3 support</li>
+    <li>Synergy API credentials</li>
+  </ul>
+
+  <h2>Steps</h2>
+  <h3>1. Clone the Repositories</h3>
+  <pre><code>git clone https://github.com/SmartGlass-Analytics/smartglass
+cd smartglass</code></pre>
+
+  <h3>2. Build the Android App</h3>
+  <ol>
+    <li>Open <code>smartglass/app</code> in Android Studio</li>
+    <li>Connect Elo M51 tablet</li>
+    <li>Click Run ▶️</li>
+    <li>Allow Bluetooth & Location permissions</li>
+  </ol>
+
+  <h3>3. Set Up Python Script</h3>
+  <pre><code>pip install -r requirements.txt
+python apipractice.py</code></pre>
+
+  <h2>External Resources</h2>
+  <table border="1">
+    <thead>
+      <tr><th>Resource</th><th>Purpose</th><th>Type</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Synergy Sports API</td><td>Live basketball stats</td><td>Paid</td></tr>
+      <tr><td>Brilliant Labs SDK</td><td>Glasses connection + Lua commands</td><td>Open Source</td></tr>
+      <tr><td>Android SDK</td><td>Android development</td><td>Free</td></tr>
+    </tbody>
+  </table>
+
+  <p><a href="index.html">Back to Home</a></p>
+</body>
+</html>

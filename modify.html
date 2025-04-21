@@ -1,0 +1,57 @@
+<!-- modify.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modifying the App - SmartGlass</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>How to Modify or Extend the SmartGlass Software</h1>
+
+  <p>This guide walks you through modifying or extending SmartGlass based on the current codebase available in the GitHub repository.</p>
+
+  <h2>Technologies Used</h2>
+  <ul>
+    <li><strong>Kotlin</strong> – used for the Android app (UI, Bluetooth)</li>
+    <li><strong>Python</strong> – used to fetch data from the Synergy API</li>
+    <li><strong>Gradle</strong> – build system for the Android project</li>
+  </ul>
+
+  <h2>How to Modify the Android App</h2>
+  <p>The app code is located in <code>app/src/main/java/com/example/smartglassapplication/</code>. Key files include:</p>
+  <ul>
+    <li><code>MainActivity.kt</code>: contains the main activity and Bluetooth trigger setup</li>
+  </ul>
+
+  <p>To add new features:</p>
+  <ol>
+    <li>Edit the layout in <code>res/layout/activity_main.xml</code> (e.g. add new buttons)</li>
+    <li>Link those UI elements in <code>MainActivity.kt</code></li>
+    <li>Add logic to connect and send commands as needed</li>
+  </ol>
+
+  <h2>How to Modify the Python Script</h2>
+  <p>Python logic is in <code>apipractice.py</code>, which pulls Synergy stats and prepares them for the tablet.</p>
+  <ul>
+    <li>To change which stats are fetched, update the request logic or post-processing section</li>
+    <li>Ensure output is consistent (e.g., write to a shared file the Kotlin app can read)</li>
+  </ul>
+
+  <h2>Dependencies</h2>
+  <ul>
+    <li><code>build.gradle</code>: Kotlin/Android dependencies</li>
+    <li><code>requirements.txt</code> (optional): Python package list if added</li>
+  </ul>
+
+  <h2>Backlog & Issues</h2>
+  <ul>
+    <li>BLE UUID discovery for Frame smart glasses using nRF Connect</li>
+    <li>Improving communication reliability with glasses</li>
+    <li>Better formatting of Synergy stats for compact display</li>
+  </ul>
+
+  <p><a href="index.html">Back to Home</a> | <a href="install.html">Installation</a> | <a href="features.html">Feature Usage</a> | <a href="faq.html">FAQs</a></p>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!-- faq.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQs - SmartGlass</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Frequently Asked Questions (FAQs)</h1>
+
+  <h2>❓ How do I connect the Frame glasses?</h2>
+  <p>Turn on the glasses, ensure Bluetooth is enabled on the tablet, and tap the "Connect" button within the app. The device will automatically scan and pair with available Frame devices.</p>
+
+  <h2>❓ What if the stats do not show up on the glasses?</h2>
+  <ul>
+    <li>Ensure <code>apipractice.py</code> is running and outputting a fresh data file</li>
+    <li>Make sure the tablet is reading from the correct location (e.g., internal storage)</li>
+    <li>Verify that the BLE connection was successful (watch for the "connected" message in logs)</li>
+  </ul>
+
+  <h2>❓ What permissions are required on the tablet?</h2>
+  <p>The Android app requires the following runtime permissions:</p>
+  <ul>
+    <li><code>BLUETOOTH</code></li>
+    <li><code>BLUETOOTH_ADMIN</code></li>
+    <li><code>BLUETOOTH_CONNECT</code> (Android 12+)</li>
+    <li><code>ACCESS_FINE_LOCATION</code></li>
+  </ul>
+
+  <h2>❓ Can I run the app on a different tablet?</h2>
+  <p>Yes. Make sure the tablet supports Bluetooth 5.0+ and runs Android 10 or later. Enable all necessary permissions, and deploy the app via Android Studio or install a signed APK.</p>
+
+  <h2>⚠️ Gotchas & Known Issues</h2>
+  <ul>
+    <li>Some BLE UUIDs for the Frame device may change — use nRF Connect to scan if needed</li>
+    <li>Synergy API requires valid authentication headers in <code>SynergyAuth.txt</code></li>
+    <li>The Frame display has limited screen size, so concise stats formatting is important</li>
+  </ul>
+
+  <p><a href="index.html">Back to Home</a> | <a href="install.html">Installation</a> | <a href="features.html">Feature Usage</a> | <a href="modify.html">Modifying the App</a></p>
+</body>
+</html>
