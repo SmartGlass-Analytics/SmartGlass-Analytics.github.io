@@ -49,6 +49,10 @@ footer {
 }
 
 .team-member img {
-    max-width: 200px;
-    border-radius: 0; /*50%; for a rounded photo*/ 
+    max-width: 100%;
+    object-fit: contain;
+    width: 200px;
+    height: 200px;
+    border-radius: 0; 
+    display: inline-block;
 }
