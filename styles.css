@@ -9,7 +9,7 @@ body {
 header {
     background-color: #9e1b32; /*#333;*/
     color: #fff;
-    padding: 1rem 0;
+    padding: 0.8rem 0;
     position: sticky;
     text-align: center;
 }
