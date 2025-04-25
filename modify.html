@@ -26,7 +26,7 @@
     <li><code>MainActivity.kt</code>: Sets up navigation, initializes Python (Chaquopy), and handles permissions.</li>
     <li><code>ui/theme/PlayerStatsScreen.kt</code>: Displays all Alabama players and allows fetching game stats.</li>
     <li><code>ui/theme/PlayerProfileScreen.kt</code>: Shows individual player stats and allows selection of stats to send via Bluetooth.</li>
-    <li><code>ble/BrilliantBleClient.kt</code>: Manages Bluetooth LE connection and sends text to Brilliant Labs Frame glasses.</li>
+    <li><code>bluetooth/bluetoothmanager.kt</code>: Manages Bluetooth LE connection and sends text to Brilliant Labs Frame glasses.</li>
     <li><code>PlayerStatsViewModel.kt</code>: Loads parsed player data from Python and updates UI state.</li>
   </ul>
   
@@ -85,19 +85,22 @@
   <ul>
     <li>To change which stats are fetched, update the request logic or post-processing section</li>
     <li>Ensure output is consistent (e.g., write to a shared file the Kotlin app can read)</li>
+    <li>If you need to install a python package, add another "install(package)" command in app/build.gradle.kts. There is already one on line 51 of the file, the next would be below it.</li>
   </ul>
 
   <h2>Dependencies</h2>
   <ul>
     <li><code>build.gradle</code>: Kotlin/Android dependencies</li>
-    <li><code>requirements.txt</code> (optional): Python package list if added</li>
+    <li>Android Gradle Plugin Version 8.8.0</li>
+    <li>Gradle Version 8.10.2</li>
   </ul>
 
   <h2>Backlog & Issues</h2>
   <ul>
-    <li>BLE UUID discovery for Frame smart glasses using nRF Connect</li>
     <li>Improving communication reliability with glasses</li>
     <li>Better formatting of Synergy stats for compact display</li>
+    <li>Adding color scale for certain stats per Coach Potts Recommendations</li>
+    <li>Adding button for showing lineup stats. Python function made and implemented, but UI button does not exist</li>
   </ul>
 
   <p><a href="index.html">Back to Home</a> | <a href="install.html">Installation</a> | <a href="features.html">Feature Usage</a> | <a href="faq.html">FAQs</a></p>
