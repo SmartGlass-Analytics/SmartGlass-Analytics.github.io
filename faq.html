@@ -17,7 +17,7 @@
   <ul>
     <li>Ensure <code>apipractice.py</code> is running and outputting a fresh data file</li>
     <li>Make sure the tablet is reading from the correct location (e.g., internal storage)</li>
-    <li>Verify that the BLE connection was successful (watch for the "connected" message in logs)</li>
+    <li>Verify that the BLE connection was successful (watch for the "connected" message in logcat)</li>
   </ul>
 
   <h2>❓ What permissions are required on the tablet?</h2>
@@ -37,6 +37,11 @@
     <li>Some BLE UUIDs for the Frame device may change — use nRF Connect to scan if needed</li>
     <li>Synergy API requires valid authentication headers in <code>SynergyAuth.txt</code></li>
     <li>The Frame display has limited screen size, so concise stats formatting is important</li>
+    <li>The Brilliant Labs Frame Python libraries are incompatible with android studio as far as we can tell:</li> 
+    <li>Trying to use frame-ble requires dbus, which android phones do not have.</li>
+    <li>Trying to use frame-sdk requires the python library simpleaudio, which chaquopy appears to be unable to install beacuse it can't find it.</li>
+    <li>frame-sdk could not find it because it needed an apt-get repository, which android studio could not support</li>
+    <li>Communication with the glasses is done over bluetooth by transmitting bytes, so be aware of the intricacies of this communication format.</li>
   </ul>
 
   <p><a href="index.html">Back to Home</a> | <a href="install.html">Installation</a> | <a href="features.html">Feature Usage</a> | <a href="modify.html">Modifying the App</a></p>
