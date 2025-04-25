@@ -20,17 +20,65 @@
   </ul>
 
   <h2>How to Modify the Android App</h2>
-  <p>The app code is located in <code>app/src/main/java/com/example/smartglassapplication/</code>. Key files include:</p>
-  <ul>
-    <li><code>MainActivity.kt</code>: contains the main activity and Bluetooth trigger setup</li>
-  </ul>
 
-  <p>To add new features:</p>
-  <ol>
-    <li>Edit the layout in <code>res/layout/activity_main.xml</code> (e.g. add new buttons)</li>
-    <li>Link those UI elements in <code>MainActivity.kt</code></li>
-    <li>Add logic to connect and send commands as needed</li>
-  </ol>
+  <p>The core Android code is located in <code>app/src/main/java/com/example/smartglassapplication/</code>. Key files include:</p>
+  <ul>
+    <li><code>MainActivity.kt</code>: Sets up navigation, initializes Python (Chaquopy), and handles permissions.</li>
+    <li><code>ui/theme/PlayerStatsScreen.kt</code>: Displays all Alabama players and allows fetching game stats.</li>
+    <li><code>ui/theme/PlayerProfileScreen.kt</code>: Shows individual player stats and allows selection of stats to send via Bluetooth.</li>
+    <li><code>ble/BrilliantBleClient.kt</code>: Manages Bluetooth LE connection and sends text to Brilliant Labs Frame glasses.</li>
+    <li><code>PlayerStatsViewModel.kt</code>: Loads parsed player data from Python and updates UI state.</li>
+  </ul>
+  
+  <h2> How to Modify the UI</h2>
+
+  <p><strong>Main UI Directory:</strong></p>
+  <ul>
+    <li>Navigate to <code>app/src/main/java/com/example/smartglassapplication/ui/theme/</code> — this contains the core UI files.</li>
+  </ul>
+  
+  <p><strong>Main Screens:</strong></p>
+  <ul>
+    <li><code>HomeScreen.kt</code> – Starting point for app navigation.</li>
+    <li><code>PlayerStatsScreen.kt</code> – Displays all Alabama players and basic stat previews.</li>
+    <li><code>PlayerProfileScreen.kt</code> – Shows full player stats and lets users select stats to send to the glasses.</li>
+  </ul>
+  
+  <p><strong>Adding New UI Elements:</strong></p>
+  <ul>
+    <li>Use Jetpack Compose components (e.g., <code>Button</code>, <code>Card</code>, <code>Text</code>, <code>Image</code>).</li>
+    <li>Follow the existing styling patterns (padding, spacing, colors, typography).</li>
+    <li>Place new UI inside the appropriate <code>Scaffold</code>, <code>Column</code>, or <code>Row</code> container.</li>
+  </ul>
+  
+  <p><strong>Modifying Player Cards:</strong></p>
+  <ul>
+    <li>Update layout or styling in <code>PlayerStatsScreen.kt</code>.</li>
+    <li>Edit what stats appear by default (points, rebounds, assists).</li>
+    <li>Images and names are passed into the <code>PlayerCard</code> composable from the ViewModel.</li>
+  </ul>
+  
+  <p><strong>Updating Profile Layout:</strong></p>
+  <ul>
+    <li>Edit <code>PlayerProfileScreen.kt</code> to change how stats and checkboxes are displayed.</li>
+    <li>All stats are shown using a list of checkboxes that control which values are sent to the glasses.</li>
+    <li>Modify card shape, padding, or color using <code>CardDefaults</code> and <code>RoundedCornerShape</code>.</li>
+  </ul>
+  
+  <p><strong>Changing Themes & Colors:</strong></p>
+  <ul>
+    <li>Update theme files in <code>ui/theme/</code> such as <code>Theme.kt</code> and <code>Color.kt</code>.</li>
+    <li>You can change button colors, background shades, and typography globally here.</li>
+  </ul>
+  
+  <p><strong>Adding Navigation:</strong></p>
+  <ul>
+    <li>Modify <code>MainActivity.kt</code> to register new screens in the <code>NavHost</code>.</li>
+    <li>Use <code>navController.navigate("yourRoute")</code> to trigger transitions.</li>
+  </ul>
+  
+  
+  <p>Layout files like <code>activity_main.xml</code> are not used — all UI is composed using Jetpack Compose.</p>
 
   <h2>How to Modify the Python Script</h2>
   <p>Python logic is in <code>apipractice.py</code>, which pulls Synergy stats and prepares them for the tablet.</p>
