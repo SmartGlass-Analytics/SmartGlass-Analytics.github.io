@@ -92,6 +92,10 @@
   <li>To change what is sent, modify the onClickListener inside PlayerProfileScreen.kt(line 93-97)</li>
   <li>To modify the connection itself, look at bluetoothmanager.kt</li>
 
+  <h2>How to Modify the Glasses Display</h2>
+  <li>Display to the glasses is written in Python, utilizing the frame_sdk package from Brilliant Labs</li>
+  <li>Text strings are sent to the glasses using functions from Lua</li>
+  <li>The way that strings are formatted onto the display can be modified in PlayerProfileScreen.kt(line 95)</li>
   <h2>Dependencies</h2>
   <ul>
     <li><code>build.gradle</code>: Kotlin/Android dependencies</li>
