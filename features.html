@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Features | SmartGlass Analytics</title>
+</head>
+<body>
+
+    <h1>📋 Features Guide for SmartGlass Analytics</h1>
+
+    <p>Welcome to the SmartGlass Analytics documentation! This guide explains <strong>all available features</strong> in the 
+    <a href="https://github.com/SmartGlass-Analytics/smartglass" target="_blank">SmartGlass App</a> and how to use and extend them.</p>
+
+    <hr>
+
+    <h2>🚀 Project Overview</h2>
+
+    <p>
+        SmartGlass Analytics provides an interface for sending basic information — such as simple text messages or statistics — 
+        from an Android tablet to Brilliant Labs XYZ smart glasses over Bluetooth Low Energy (BLE).
+    </p>
+
+    <p>The application is lightweight, modular, and designed to be easily expandable for future features like live sports data integration.</p>
+
+    <p><strong>Repositories:</strong><br>
+    <a href="https://github.com/SmartGlass-Analytics/SmartGlass-Analytics.github.io" target="_blank">Team Website</a><br>
+    <a href="https://github.com/SmartGlass-Analytics/smartglass" target="_blank">Android Application + Backend</a></p>
+
+    <hr>
+
+    <h2>🛠 Core Features</h2>
+
+    <h3>📡 Bluetooth Pairing and Connection to Glasses</h3>
+
+    <p><strong>Purpose:</strong> Allow the user to pair and connect the Elo Android tablet to Brilliant Labs XYZ smart glasses using Bluetooth.</p>
+
+    <p><strong>How to Use:</strong></p>
+    <ul>
+        <li>Open the SmartGlass app on the tablet.</li>
+        <li>Tap <strong>"Scan for Devices"</strong> on the Bluetooth screen.</li>
+        <li>Select your XYZ glasses from the device list.</li>
+        <li>Tap <strong>"Connect"</strong> to initiate pairing.</li>
+    </ul>
+
+    <p><strong>Developer Details:</strong><br>
+    Core Code: <a href="https://github.com/SmartGlass-Analytics/smartglass/blob/main/app/src/main/java/com/example/smartglass/bluetooth/BluetoothService.kt" target="_blank">BluetoothService.kt</a><br>
+    Built on Android BluetoothAdapter and BluetoothGatt APIs.</p>
+
+    <hr>
+
+    <h3>📨 Sending Data to Glasses</h3>
+
+    <p><strong>Purpose:</strong> After establishing a Bluetooth connection, the app sends simple text data (e.g., a "Welcome" message or sample stats) to the glasses display.</p>
+
+    <p><strong>How to Use:</strong></p>
+    <ul>
+        <li>Once connected, go to the <strong>Send Message</strong> screen.</li>
+        <li>Enter a short text message into the field.</li>
+        <li>Tap <strong>"Send"</strong> to transmit the message to the glasses.</li>
+    </ul>
+
+    <p><strong>Developer Details:</strong><br>
+    Core Code: <a href="https://github.com/SmartGlass-Analytics/smartglass/blob/main/app/src/main/java/com/example/smartglass/bluetooth/MessageSender.kt" target="_blank">MessageSender.kt</a><br>
+    Uses Bluetooth GATT services to send short BLE packets (under 100 characters).</p>
+
+    <hr>
+
+    <h3>🔄 Reconnection and Disconnection Management</h3>
+
+    <p><strong>Purpose:</strong> Handle cases where the Bluetooth connection drops or the glasses power off unexpectedly.</p>
+
+    <p><strong>How to Use:</strong></p>
+    <ul>
+        <li>If the connection drops, the app attempts an automatic reconnection.</li>
+        <li>Users can manually <strong>Disconnect</strong> and <strong>Reconnect</strong> through the app settings.</li>
+    </ul>
+
+    <p><strong>Developer Details:</strong><br>
+    Auto-reconnect and manual disconnect are handled inside 
+    <a href="https://github.com/SmartGlass-Analytics/smartglass/blob/main/app/src/main/java/com/example/smartglass/bluetooth/BluetoothService.kt" target="_blank">BluetoothService.kt</a>.</p>
+
+    <hr>
+
+    <h3>🛠 Developer Testing and Logging</h3>
+
+    <p><strong>Purpose:</strong> Enable developers to test Bluetooth functionality, simulate sending messages, and debug connection issues.</p>
+
+    <p><strong>How Developers Use It:</strong></p>
+    <ul>
+        <li>Use Android logcat output to view Bluetooth connection status.</li>
+        <li>Simulate sending short sample messages without full API integration.</li>
+        <li>Test maximum payload limits through trial messages.</li>
+    </ul>
+
+    <p><strong>Developer Details:</strong><br>
+    Debug tags and simulated tests are available in <strong>BluetoothService</strong> and <strong>MessageSender</strong> classes.</p>
+
+    <hr>
+
+    <h2>🔮 Future and Planned Features</h2>
+
+    <h3>📈 Lineup Statistics Button</h3>
+
+    <p><strong>Purpose:</strong> Add functionality to pull and display lineup statistics from Synergy data or example datasets.</p>
+
+    <p><strong>Current Status:</strong> 
+    Partial backend Python code exists (<a href="https://github.com/SmartGlass-Analytics/smartglass/blob/main/python/apipractice.py" target="_blank">apipractice.py</a>) for fetching lineup data. 
+    However, there is currently no Android UI button or Kotlin code to trigger lineup stats fetching inside the app yet.</p>
+
+    <p><strong>Planned Action:</strong></p>
+    <ul>
+        <li>Add a "View Lineup Stats" button to the Android application interface.</li>
+        <li>Connect the button to display lineup data on the tablet and/or glasses.</li>
+        <li>Eventually integrate real Synergy lineup stats dynamically inside the app.</li>
+    </ul>
+
+    <hr>
+
+    <h3>🎨 Improved Visual Feedback for Statistics (Color Coding)</h3>
+
+    <p><strong>Purpose:</strong> Improve the readability and interpretation of displayed statistics by using color-coded performance indicators (Red / Yellow / Green).</p>
+
+    <p><strong>Current Status:</strong> 
+    Color thresholds are planned but have not yet been implemented. No current Kotlin code changes text color based on good/okay/poor performance.</p>
+
+    <p><strong>Planned Action:</strong></p>
+    <ul>
+        <li>Set threshold ranges for "good", "okay", and "poor" statistics.</li>
+        <li>Update the Android UI to dynamically change text color based on these thresholds:</li>
+        <ul>
+            <li><span style="color:green;">Green</span> — Good performance</li>
+            <li><span style="color:orange;">Yellow</span> — Okay performance</li>
+            <li><span style="color:red;">Red</span> — Poor performance</li>
+        </ul>
+        <li>Enhance glasses display to visually indicate performance where possible.</li>
+    </ul>
+
+    <p>Example color logic to be implemented:</p>
+
+    <pre><code>
+    if (stat > GOOD_THRESHOLD) {
+        textView.setTextColor(Color.GREEN);
+    } else if (stat > OKAY_THRESHOLD) {
+        textView.setTextColor(Color.YELLOW);
+    } else {
+        textView.setTextColor(Color.RED);
+    }
+    </code></pre>
+
+
+    <hr>
+
+    <h2>📌 Final Notes</h2>
+
+    <ul>
+        <li>Ensure Brilliant Labs glasses are powered on and in pairing mode before connecting.</li>
+        <li>Keep messages short for best BLE reliability and display clarity.</li>
+        <li>BLE connections are proximity-sensitive; maintain close distance between tablet and glasses.</li>
+    </ul>
+
+    <hr>
+
+    <h2>🧩 Quick Links</h2>
+
+    <ul>
+        <li><a href="installation.html">Installation Guide</a></li>
+        <li><a href="modification.html">Modification Guide</a></li>
+        <li><a href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+    </ul>
+
+    <hr>
+
+    <p><em>Authored by the SmartGlass Analytics Team<br>
+    University of Alabama, 2025 Capstone Project</em></p>
+
+</body>
+</html>
